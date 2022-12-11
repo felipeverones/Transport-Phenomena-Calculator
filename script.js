@@ -35,6 +35,7 @@ function calculaQ0(){
     /* e/D  *********Rugosidade do aço comercial: 0,046 mm */ 
     let rugosidadeRelativa = rugosidade_SI / diametro_SI; 
 
+
     /* Aproximação de Moody para a relação de Colebrook (Cálculo do fator de atrito) */
     let f = 0.0055 * (1 + Math.pow((2*Math.pow(10,4) * rugosidadeRelativa + (Math.pow(10,6)/reynolds) ), 1/3 ) );
 
@@ -42,18 +43,12 @@ function calculaQ0(){
     f = f * 1000;
     f = Math.trunc(f);
     f = f/1000;
+
+
     
     /* Cálculo da queda da pressão */
     let n_Le_D = 4 * 30 /* 4 cotovelos de 90 graus */
     let quedaPressao = roAgua * f * (Math.pow(V, 2) / 2) * ((3/diametro_SI) + n_Le_D)
-    
-    console.log('f: ',f) 
-    console.log('L/D: ',3/diametro_SI) //
-    console.log('rô: ',roAgua)//
-    console.log('V: ',V); //
-    console.log('120: ',n_Le_D); //
-    console.log('quedaPressao', quedaPressao)
-
     
 
     /* ************************************************************************ */

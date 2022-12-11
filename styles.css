@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* faz com que o padding e o border desconte do tamanho do conteúdo ao invés de somar além do tamanho do conteúdo principal */
+  /* ou seja, a largura e altura do elemento passam a considerar os valores de padding e border também */
+}
+
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --main-color: #8700ff;
+  --background-color: #020303;
+  --final-color: #030404;
+  --transition-color: #9a37ff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    /* background: rgb(0,108,218); */
+    background: -webkit-linear-gradient( rgba(0,108,218,1) 0%, rgba(223,22,22,1) 100%);
+    background: linear-gradient(180deg, rgba(0,108,218,1) 0%, rgba(223,22,22,1) 100%);
+    
+
+    font-family: var(--font-family);
+    background-attachment: fixed;
+}
+
+a,
+a:active,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+.main{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px 10% 0 10%;
+}
+
+.pagetitle{
+  font-size: 40px;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.questao{
+  margin-bottom: 60px;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ffffff;
+  min-height: 600px;
+  width: 100%;
+  border-radius: 50px;
+}
+
+.questao > h1{
+  font-weight: 600;
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.questao > p{
+  line-height: 25px;
+  text-align: justify;
+}
+
+p > b{
+  font-weight: bold;
+}
+
+p > input{
+  width: 50px;
+}
+
+p > .inputmaior{
+  width: 58px;
+}
+
+.questao  img{
+  max-width: 100%;
+  height: auto;
+}
+
+.questao > .botaocalcular{
+  background-color: #7676d4;
+  padding: 20px;
+  border-radius: 15px;
+  user-select: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.botaocalcular:active{
+  transform: translateY(2px);
+}
+
+.resolucao{
+  display:none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 2%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px;
+  border: 2px solid #0b8f8f;
+  border-radius: 25px;
+  min-height:300px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.resolucao > ul{
+  margin-top: 10px;
+}
+
+.resolucao > ul  li{
+  list-style-type: disc;
+  line-height: 25px;
+  font-size: 22px;
+  margin: 10px 0 10px 0;
+}
+
+.h1resolucao{
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 24px;
+  margin-bottom: 5px;
+}
+
+.divimagens{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.divimagens img {
+  margin: 15px 0 15px 0;
+}

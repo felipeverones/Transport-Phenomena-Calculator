@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="/src/archimedes.png" />
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <script src="math.js" type="text/javascript"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous"
+    />
+    <!-- Reset.css -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Calculadora | Fenômenos de Transporte</title>
+  </head>
+  <body>
+    <section class="main">
+
+      <h1 class="pagetitle">Calculadora de Fenômenos de Transporte</h1>
+
+      <div class="questao" id="questao0">
+        <h1>Mecânica dos Fluidos - Escoamento Interno Viscoso e Incompressível</h1>
+        <p>
+          O sistema de resfriamento do processador de um computador é composto por uma tubulação de diâmetro D = <input type="number"step="0.1" value="12.7" min="0" id="diametroq0"> mm e comprimento L =<input type="number"step="0.01" value="3" min="0" id="comprimentoq0"> m, por onde escoa água a uma vazão volumétrica de <input type="number"step="0.01" value="3.5" min="0" id="vazaoq0"> L/min. A fim de selecionar a bomba necessária para promover essa vazão, você deve determinar qual é a queda de pressão na tubulação. Assuma que o tubo é de <b>aço comercial</b> (e = 0,046 mm) e adote &#961; água = 1000 kg/m³ e
+          &#956; água = \(10^{-3}\) Pa.s.
+        </p>
+        <img src="/src/ex0.png" alt="Sistema">
+        <button class="botaocalcular" onclick="calculaQ0()">
+          Calcular
+        </button>
+        <span class="resolucao" id="resolucaoq0">
+        </span>
+      </div>
+
+      <div class="questao" id="questao1">
+        <h1>Termodinâmica - Trabalho de compressão ou expansão</h1>
+        <p>
+          Um gás em um conjunto cilindro-pistão passa por um processo, cuja relação entre pressão e volume é dada por: \(pV^n = cte\).
+          A pressão
+          inicial é de <input type="number"step="0.01" value="3.0" min="0" id="pressaoq1"> bar, o volume inicial é de <input type="number"step="0.01" value="0.1" min="0" id="volume1"> m³ e o volume final é de
+          <input type="number"step="0.01" value="0.2" min="0" id="volume2"> m³. Determine o trabalho para o processo, em kJ, no caso de n = <input type="number" step="0.01" value="1.5" min="0" id="nq1">
+        </p>
+        <img src="/src/expansao_gas.png" alt="">
+        <button class="botaocalcular" onclick="calculaQ1()">
+          Calcular
+        </button>
+        <span class="resolucao" id="resolucaoq1">
+        </span>
+      </div>
+
+      <div class="questao" id="questao2">
+        <h1>Termodinâmica - Mecanismos de transferência de calor</h1>
+        <p>
+          A parede de um forno industrial é construída de um tijolo especial de <input type="number"step="0.01" value="0.15" min="0" id="espessuraq2"> m de espessura e condutividade térmica de <input type="number"step="0.01" value="1.7" min="0" id="condutividadeq2"> W/(m.K). Medições feitas durante operação em <b>regime permanente</b> indicam temperaturas de <input type="number"step="1" value="1400" min="0" class="inputmaior" id="temperatura1q2"> K e <input type="number"step="1" value="1150" min="0" class="inputmaior" id="temperatura2q2"> K nas superfícies interna e externa, respectivamente. Qual é a taxa de transferência de calor através da parede de dimensões <input type="number"step="0.01" value="0.5" min="0" id="dimensao1q2"> m x <input type="number"step="0.01" value="1.2" min="0" id="dimensao2q2"> m?
+        </p>
+        <img src="/src/problematermo2.png" alt="">
+        <button class="botaocalcular" onclick="calculaQ2()">
+          Calcular
+        </button>
+        <span class="resolucao" id="resolucaoq2">
+        </span>
+      </div>
+
+    </section>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
+  

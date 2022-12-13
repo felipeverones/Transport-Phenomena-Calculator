@@ -48,7 +48,7 @@ function calculaQ0(){
     
     /* Cálculo da queda da pressão */
     let n_Le_D = 4 * 30 /* 4 cotovelos de 90 graus */
-    let quedaPressao = roAgua * f * (Math.pow(V, 2) / 2) * ((3/diametro_SI) + n_Le_D)
+    let quedaPressao = roAgua * f * (Math.pow(V, 2) / 2) * ((comprimento/diametro_SI) + n_Le_D)
     
 
     /* ************************************************************************ */

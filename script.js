@@ -11,7 +11,6 @@ function calculaQ0(){
     //let rugosidadeMaterial = 0.046 /* mm */
 
     let rugosidadeMaterial = document.getElementById("selectmaterial").value
-    console.log(rugosidadeMaterial)
 
     /* Transformar em Number */
     diametro = Number(diametro);

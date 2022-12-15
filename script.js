@@ -340,7 +340,6 @@ function calculaQ3(){
 
     let Q_ponto = (temperatura_SI - Tar_SI) / Req;
 
-    console.log(Q_ponto)
 
     /* ************************************************************************ */
     //Renderizar resultados:

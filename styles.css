@@ -153,3 +153,10 @@ p > .inputmaior{
 .divimagens img {
   margin: 15px 0 15px 0;
 }
+
+@media (max-width:400px){
+  .resolucao > ul  li{
+    font-size: 16px;
+  }
+
+}

@@ -156,6 +156,7 @@ p > .inputmaior{
 
 @media (max-width:400px){
   .resolucao > ul  li{
+    list-style-type: none;
     font-size: 16px;
   }
 

@@ -39,8 +39,14 @@
       <div class="questao" id="questao0">
         <h1>Mecânica dos Fluidos - Escoamento Interno Viscoso e Incompressível</h1>
         <p>
-          O sistema de resfriamento do processador de um computador é composto por uma tubulação de diâmetro D = <input type="number"step="0.1" value="12.7" min="0" id="diametroq0"> mm e comprimento L = <input type="number"step="0.01" value="3" min="0" id="comprimentoq0"> m, por onde escoa água a uma vazão volumétrica de <input type="number"step="0.01" value="3.5" min="0" id="vazaoq0"> L/min. A fim de selecionar a bomba necessária para promover essa vazão, você deve determinar qual é a queda de pressão na tubulação. Assuma que o tubo é de <b>aço comercial</b> (e = 0,046 mm) e adote &#961; água = 1000 kg/m³ e
-          &#956; água = \(10^{-3}\) Pa.s.
+          O sistema de resfriamento do processador de um computador é composto por uma tubulação de diâmetro D = <input type="number"step="0.1" value="12.7" min="0" id="diametroq0"> mm e comprimento L = <input type="number"step="0.01" value="3" min="0" id="comprimentoq0"> m, por onde escoa água a uma vazão volumétrica de <input type="number"step="0.01" value="3.5" min="0" id="vazaoq0"> L/min. A fim de selecionar a bomba necessária para promover essa vazão, você deve determinar qual é a queda de pressão na tubulação. Assuma que o tubo é de <select id="selectmaterial">
+          <option value="0.046">aço comercial (e = 0,046 mm)</option>
+          <option value="0.26">ferro fundido (e = 0,26 mm)</option>
+          <option value="0.15">ferro galvanizado (e = 0,15 mm)</option>
+          <option value="0.0015">trefilado (e = 0,0015 mm)</option>
+          <option value="0.12">ferro fundido asfaltado (e = 0,12 mm)</option>
+        </select> e adote &#961; água = 1000 kg/m³ e
+          &#956; água = \(10^{-3}\) Pa.s. <!-- f -->
         </p>
         <img src="/src/ex0.png" alt="Sistema">
         <button class="botaocalcular" onclick="calculaQ0()">

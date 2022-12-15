@@ -8,13 +8,16 @@ function calculaQ0(){
     let vazao = document.getElementById("vazaoq0").value;
     let roAgua = 1000;  /* massa específica */
     let miAgua = 1/1000; /* viscosidade */
-    let rugosidadeMaterial = 0.046 /* mm */
+    //let rugosidadeMaterial = 0.046 /* mm */
 
+    let rugosidadeMaterial = document.getElementById("selectmaterial").value
+    console.log(rugosidadeMaterial)
 
     /* Transformar em Number */
     diametro = Number(diametro);
     comprimento = Number(comprimento);
     vazao = Number(vazao);
+    rugosidadeMaterial = Number(rugosidadeMaterial);
 
     /* Passar para SI, se precisar */
     let vazao_SI = vazao * Math.pow(10,-3) * (1/60);

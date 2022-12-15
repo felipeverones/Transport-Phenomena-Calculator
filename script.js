@@ -284,7 +284,7 @@ function calculaQ3(){
     let he = 1000;
     let k = 400;
     let Rcont = Math.pow(10,-4)
-    let Lb = 5
+    let Lb = document.getElementById("comprimentopcbq3").value;
     let kb = 1;
     let hi = 40;
     let T_ar = document.getElementById("temparq3").value;
@@ -295,6 +295,7 @@ function calculaQ3(){
     diametropino = Number(diametropino);
     comprimentopino = Number(comprimentopino);
     T_ar = Number(T_ar);
+    Lb = Number(Lb);
 
     /* Passar para SI, se precisar */
     let temperatura_SI = temperatura + 273; // C -> k

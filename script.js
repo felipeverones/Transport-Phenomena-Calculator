@@ -1,4 +1,6 @@
 
+
+
 function calculaQ0(){
     /* Pegar os inputs */
     let diametro = document.getElementById("diametroq0").value;
@@ -252,5 +254,169 @@ function calculaQ2(){
     resolucao.appendChild(divimagens)
     resolucao.appendChild(lista)
     
+}
+
+
+
+
+
+let tempmax = document.getElementById("temperaturaq3");
+let temp2max = document.getElementById("temperatura2q3");
+
+tempmax.addEventListener("change", ()=>{
+    temp2max.value = tempmax.value;
+    temp2max.innerText = tempmax.value;
+})
+
+temp2max.addEventListener("change", ()=>{
+    tempmax.value = temp2max.value;
+    tempmax.innerText = temp2max.value;
+})
+
+
+function calculaQ3(){
+    /* Pegar os inputs */
+    let temperatura = tempmax.value;
+    let aresta = document.getElementById("arestaq3").value;
+    let diametropino = document.getElementById("diametropq3").value;
+    let comprimentopino = document.getElementById("comprimentopq3").value;
+    let N = 16; /* numero Aletas */
+    let he = 1000;
+    let k = 400;
+    let Rcont = Math.pow(10,-4)
+    let Lb = 5
+    let kb = 1;
+    let hi = 40;
+    let T_ar = document.getElementById("temparq3").value;
+
+    /* Transformar em Number */
+    temperatura = Number(temperatura);
+    aresta = Number(aresta);
+    diametropino = Number(diametropino);
+    comprimentopino = Number(comprimentopino);
+    T_ar = Number(T_ar);
+
+    /* Passar para SI, se precisar */
+    let temperatura_SI = temperatura + 273; // C -> k
+    let Tar_SI = T_ar + 273; // C -> k
+    let aresta_SI = aresta * Math.pow(10,-3); /* mm -> m */
+    let diametropino_SI = diametropino * Math.pow(10,-3); /* mm -> m */
+    let comprimentopino_SI = comprimentopino * Math.pow(10,-3); /* mm -> m */
+    let Lb_SI = Lb * Math.pow(10,-3); /* mm -> m */
+
+    /* Aplicar regras e fórmulas */
+    let Atrans = Math.pow(aresta_SI, 2); /* área transversal do chip (w x w) */
+
+    Rcont = Rcont / Atrans;
+
+    let m = Math.sqrt(((he * math.pi * diametropino_SI )/(k * math.pi * Math.pow(diametropino_SI,2) * 0.25)))  /* regra simplificada para pinos com seção circular */
+
+    let Lc = comprimentopino_SI + (diametropino_SI/4); /* regra simplificada para pinos com seção circular */
+
+    let eficiencia = (Math.tanh(m * Lc)) / (m * Lc)
+
+    let Aaleta = math.pi * diametropino_SI * Lc; 
+
+    let Abasealetas = (N * math.pi * Math.pow(diametropino_SI, 2)) / 4
+
+    let Abase = Atrans - Abasealetas;
+
+    let Ra = 1 / (he * Aaleta * N * eficiencia); 
+
+    let Rbase = 1 / (he * Abase);
+
+    let Rcond = Lb_SI / (kb * Atrans)
+    
+    let Rconv = 1 / (hi * Atrans)
+
+    let Ri = Rcont + Rcond + Rconv
+
+    Reqparcial = 1/Ra + 1/Rbase + 1/Ri
+
+    Req = 1/Reqparcial
+
+
+    /* Calcula Q ponto */
+
+    let Q_ponto = (temperatura_SI - Tar_SI) / Req;
+
+    console.log(Q_ponto)
+
+    /* ************************************************************************ */
+    //Renderizar resultados:
+    const resolucao = document.getElementById('resolucaoq3')
+    resolucao.innerHTML = '' //limpa
+    resolucao.style.display = 'flex'
+
+    const titulo = document.createElement('h1')
+    titulo.classList.add("h1resolucao")
+    titulo.innerHTML = `Resultados`
+
+    /* ************************************************************************ */
+
+    const divimagens = document.createElement('div');
+    divimagens.classList.add("divimagens");
+
+    const imagem1 = document.createElement('img');
+    imagem1.src = '/src/circuitotermal.png'
+
+    const imagem2 = document.createElement('img');
+    imagem2.src = '/src/Rcond.png'
+
+    const imagem3 = document.createElement('img');
+    imagem3.src = '/src/Rconv.png'
+
+    const imagem4 = document.createElement('img');
+    imagem4.src = '/src/Raleta.png'
+
+    const imagem5 = document.createElement('img');
+    imagem5.src = '/src/Rnaoaletada.png'
+    
+    divimagens.appendChild(imagem1);
+    divimagens.appendChild(imagem2);
+    divimagens.appendChild(imagem3);
+    divimagens.appendChild(imagem4);
+    divimagens.appendChild(imagem5);
+
+
+
+    /* ************************************************************************ */
+
+    const lista = document.createElement('ul');
+
+    const linha1 = document.createElement('li')
+    linha1.innerHTML = `R_aleta = ${Ra.toFixed(2)} K/W`
+
+    const linha2 = document.createElement('li')
+    linha2.innerHTML = `R_base = ${Rbase.toFixed(2)} K/W`
+
+    const linha3 = document.createElement('li')
+    linha3.innerHTML = `R_condução = ${Rcond.toFixed(2)} K/W`
+
+    const linha4 = document.createElement('li')
+    linha4.innerHTML = `R_convecção = ${Rconv.toFixed(2)} K/W`
+
+    const linha5 = document.createElement('li')
+    linha5.innerHTML = `R_contato = ${Rcont.toFixed(2)} K/W`
+
+    const linha6 = document.createElement('li')
+    linha6.innerHTML = `Resistência Equivalente = ${Req.toFixed(2)} K/W`
+
+    const linha7 = document.createElement('li')
+    linha7.innerHTML =`Taxa de transferência de calor = ${Q_ponto.toFixed(2)} KW`
+
+    lista.appendChild(linha1);
+    lista.appendChild(linha2);
+    lista.appendChild(linha3);
+    lista.appendChild(linha4);
+    lista.appendChild(linha5);
+    lista.appendChild(linha6);
+    lista.appendChild(linha7);
+
+
+    
+    resolucao.appendChild(titulo)
+    resolucao.appendChild(divimagens)
+    resolucao.appendChild(lista)
 }
 
